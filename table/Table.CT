@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable>
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1337213546</ID>
+      <Description>"FC Hosting"</Description>
+      <LastState Value="" RealAddress="00000000"/>
+      <GroupHeader>1</GroupHeader>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1337213547</ID>
+          <Description>"Player Data"</Description>
+          <LastState Value="" RealAddress="00000000"/>
+          <GroupHeader>1</GroupHeader>
+          <CheatEntries>
+            <CheatEntry>
+              <ID>1337213548</ID>
+              <Description>"Player1 - Current HP"</Description>
+              <LastState Value="0" RealAddress="7FF46F170148"/>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>WorldChrMan</Address>
+              <Offsets>
+                <Offset>138</Offset>
+                <Offset>0</Offset>
+                <Offset>190</Offset>
+                <Offset>0*10</Offset>
+                <Offset>B658</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337213549</ID>
+              <Description>"Player1 - Max HP"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>4 Bytes</VariableType>
+              <Address>WorldChrMan</Address>
+              <Offsets>
+                <Offset>13C</Offset>
+                <Offset>0</Offset>
+                <Offset>190</Offset>
+                <Offset>0*10</Offset>
+                <Offset>B658</Offset>
+              </Offsets>
+            </CheatEntry>
+          </CheatEntries>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1337192502</ID>
+          <Description>"Overlay Data Updater"</Description>
+          <Options moHideChildren="1"/>
+          <LastState Activated="1"/>
+          <VariableType>Auto Assembler Script</VariableType>
+          <AssemblerScript>{$lua}
+[ENABLE]
+
+local io = require("io")
+
+local form = createForm()
+local formDescription = createLabel(form)
+local addressList = getAddressList()
+
+local filePath = "PATH-TO-er-overlay-data.txt"
+
+targetInfoTimer = createTimer(form)
+
+targetInfoTimer.Interval = 500
+formDescription.Caption = 'Started'
+
+local Key_Player1CurrentHP = 'Player1 - Current HP'
+local Key_Player1MaxHP = 'Player1 - Max HP'
+
+function tick()
+local file = io.open(filePath, "w")
+
+    local Player1CurrentHP = addressList.getMemoryRecordByDescription(Key_Player1CurrentHP)
+    local Player1MaxHP = addressList.getMemoryRecordByDescription(Key_Player1MaxHP)
+
+    if file ~= nil then
+        file:write(Player1CurrentHP.Value)
+        file:write(",")
+        file:write(Player1MaxHP.Value);
+        file:close()
+    end
+
+end
+
+targetInfoTimer.OnTimer = tick
+
+tick()
+
+[DISABLE]
+targetInfoTimer.destroy()
+</AssemblerScript>
+</CheatEntry>
+</CheatEntries>
+</CheatEntry>
+</CheatEntries>
+</CheatTable>

@@ -7,12 +7,12 @@ local form = createForm()
 local formDescription = createLabel(form)
 local addressList = getAddressList()
 
-local filePath = "C:\\Users\\Rei\\Documents\\er-overlay-data.txt"
+local filePath = "PATH\\TO\\er-overlay-data.txt"
 
 overlayDataUpdaterTimer = createTimer(form)
 
 overlayDataUpdaterTimer.Interval = 500
-formDescription.Caption = 'Started server'
+formDescription.Caption = 'Started'
 
 local Key_Player1CurrentHP = 'Player1 - Current HP'
 local Key_Player1MaxHP = 'Player1 - Max HP'
