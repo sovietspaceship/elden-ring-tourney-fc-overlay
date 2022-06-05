@@ -12,7 +12,7 @@ export type OverlayData = {
   Players: PlayerData[]
 }
 
-const REFRESH_INTERVAL = 1000;
+const REFRESH_INTERVAL = 100;
 const TEST_MODE = false;
 
 export const useOverlayData = defineStore({
@@ -31,6 +31,18 @@ export const useOverlayData = defineStore({
             CurrentHP: (600 + Math.random() * 100 | 0),
             MaxHP: 1000,
             Name: 'Emilia',
+          }, {
+            CurrentHP: (600 + Math.random() * 100 | 0),
+            MaxHP: 1000,
+            Name: 'JeeNiNE',
+          }, {
+            CurrentHP: (600 + Math.random() * 100 | 0),
+            MaxHP: 1000,
+            Name: 'Pickel Hakresht',
+          }, {
+            CurrentHP: (600 + Math.random() * 100 | 0),
+            MaxHP: 1000,
+            Name: 'ChaseDorito',
           }]
         }
       } else {
