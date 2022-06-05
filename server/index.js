@@ -60,30 +60,34 @@ async function readOverlayData() {
     const [
         player1CurrentHP,
         player1MaxHP,
+        player1Name,
         player2CurrentHP,
         player2MaxHP,
+        player2Name,
         player3CurrentHP,
         player3MaxHP,
+        player3Name,
         player4CurrentHP,
         player4MaxHP,
+        player4Name,
     ] = rawData.toString().split(',')
     return {
         Players: [{
             CurrentHP: +player1CurrentHP,
             MaxHP: +player1MaxHP,
-            Name: 'Player 1'
+            Name: player1Name,
         }, {
             CurrentHP: +player2CurrentHP,
             MaxHP: +player2MaxHP,
-            Name: 'Player 2'
+            Name: player2Name
         }, {
             CurrentHP: +player3CurrentHP,
             MaxHP: +player3MaxHP,
-            Name: 'Player 3'
+            Name: player3Name
         }, {
             CurrentHP: +player4CurrentHP,
             MaxHP: +player4MaxHP,
-            Name: 'Player 4'
+            Name: player4Name
         }],
     }
 }

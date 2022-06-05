@@ -40,7 +40,24 @@
               </Offsets>
             </CheatEntry>
             <CheatEntry>
-              <ID>1337213550</ID>
+              <ID>133721350</ID>
+              <Description>"Player1 - Name"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>32</Length>
+              <Unicode>1</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>WorldChrMan</Address>
+              <Offsets>
+                <Offset>9C</Offset>
+                <Offset>570</Offset>
+                <Offset>0*10</Offset>
+                <Offset>B658</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>133721351</ID>
               <Description>"Player2 - Current HP"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
@@ -54,7 +71,7 @@
               </Offsets>
             </CheatEntry>
             <CheatEntry>
-              <ID>1337213551</ID>
+              <ID>133721352</ID>
               <Description>"Player2 - Max HP"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
@@ -68,7 +85,24 @@
               </Offsets>
             </CheatEntry>
             <CheatEntry>
-              <ID>1337213552</ID>
+              <ID>133721353</ID>
+              <Description>"Player2 - Name"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>32</Length>
+              <Unicode>1</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>WorldChrMan</Address>
+              <Offsets>
+                <Offset>9C</Offset>
+                <Offset>570</Offset>
+                <Offset>1*10</Offset>
+                <Offset>B658</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>133721354</ID>
               <Description>"Player3 - Current HP"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
@@ -82,7 +116,7 @@
               </Offsets>
             </CheatEntry>
             <CheatEntry>
-              <ID>1337213553</ID>
+              <ID>133721355</ID>
               <Description>"Player3 - Max HP"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
@@ -96,7 +130,24 @@
               </Offsets>
             </CheatEntry>
             <CheatEntry>
-              <ID>1337213554</ID>
+              <ID>133721356</ID>
+              <Description>"Player3 - Name"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>32</Length>
+              <Unicode>1</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>WorldChrMan</Address>
+              <Offsets>
+                <Offset>9C</Offset>
+                <Offset>570</Offset>
+                <Offset>2*10</Offset>
+                <Offset>B658</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>133721357</ID>
               <Description>"Player4 - Current HP"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
@@ -110,7 +161,7 @@
               </Offsets>
             </CheatEntry>
             <CheatEntry>
-              <ID>1337213555</ID>
+              <ID>133721358</ID>
               <Description>"Player4 - Max HP"</Description>
               <ShowAsSigned>0</ShowAsSigned>
               <VariableType>4 Bytes</VariableType>
@@ -119,6 +170,23 @@
                 <Offset>13C</Offset>
                 <Offset>0</Offset>
                 <Offset>190</Offset>
+                <Offset>3*10</Offset>
+                <Offset>B658</Offset>
+              </Offsets>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>133721359</ID>
+              <Description>"Player4 - Name"</Description>
+              <ShowAsSigned>0</ShowAsSigned>
+              <VariableType>String</VariableType>
+              <Length>32</Length>
+              <Unicode>1</Unicode>
+              <CodePage>0</CodePage>
+              <ZeroTerminate>1</ZeroTerminate>
+              <Address>WorldChrMan</Address>
+              <Offsets>
+                <Offset>9C</Offset>
+                <Offset>570</Offset>
                 <Offset>3*10</Offset>
                 <Offset>B658</Offset>
               </Offsets>
@@ -154,12 +222,18 @@ formDescription.Caption = 'Started'
 
 local Key_Player1CurrentHP = 'Player1 - Current HP'
 local Key_Player1MaxHP = 'Player1 - Max HP'
+local Key_Player1Name = 'Player 1 - Name'
 local Key_Player2CurrentHP = 'Player2 - Current HP'
 local Key_Player2MaxHP = 'Player2 - Max HP'
+local Key_Player2Name = 'Player 2 - Name'
 local Key_Player3CurrentHP = 'Player3 - Current HP'
 local Key_Player3MaxHP = 'Player3 - Max HP'
+local Key_Player3Name = 'Player 3 - Name'
 local Key_Player4CurrentHP = 'Player4 - Current HP'
 local Key_Player4MaxHP = 'Player4 - Max HP'
+local Key_Player4Name = 'Player 4 - Name'
+
+-- @TODO: add character name
 
 function tick()
     local file = io.open(filePath, "w")
@@ -167,12 +241,16 @@ function tick()
     -- could be refactored into readInteger and hardcoding offsets
     local Player1CurrentHP = addressList.getMemoryRecordByDescription(Key_Player1CurrentHP)
     local Player1MaxHP = addressList.getMemoryRecordByDescription(Key_Player1MaxHP)
+    local Player1Name = addressList.getMemoryRecordByDescription(Key_Player1Name)
     local Player2CurrentHP = addressList.getMemoryRecordByDescription(Key_Player2CurrentHP)
     local Player2MaxHP = addressList.getMemoryRecordByDescription(Key_Player2MaxHP)
+    local Player2Name = addressList.getMemoryRecordByDescription(Key_Player2Name)
     local Player3CurrentHP = addressList.getMemoryRecordByDescription(Key_Player3CurrentHP)
     local Player3MaxHP = addressList.getMemoryRecordByDescription(Key_Player3MaxHP)
+    local Player3Name = addressList.getMemoryRecordByDescription(Key_Player3Name)
     local Player4CurrentHP = addressList.getMemoryRecordByDescription(Key_Player4CurrentHP)
     local Player4MaxHP = addressList.getMemoryRecordByDescription(Key_Player4MaxHP)
+    local Player4Name = addressList.getMemoryRecordByDescription(Key_Player4Name)
 
     if file ~= nil then
         -- format is just csv
@@ -180,17 +258,25 @@ function tick()
         file:write(",")
         file:write(Player1MaxHP.Value);
         file:write(",")
+        file:write(Player1Name.Value);
+        file:write(",")
         file:write(Player2CurrentHP.Value)
         file:write(",")
         file:write(Player2MaxHP.Value);
+        file:write(",")
+        file:write(Player2Name.Value);
         file:write(",")
         file:write(Player3CurrentHP.Value)
         file:write(",")
         file:write(Player3MaxHP.Value);
         file:write(",")
+        file:write(Player3Name.Value);
+        file:write(",")
         file:write(Player4CurrentHP.Value)
         file:write(",")
         file:write(Player4MaxHP.Value);
+        file:write(",")
+        file:write(Player4Name.Value);
         file:close()
     end
 end

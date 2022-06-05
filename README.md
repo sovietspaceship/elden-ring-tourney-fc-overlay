@@ -17,5 +17,3 @@ CE table provided in `table/Table.CT`. Change `filePath` in `FC Hosting` -> `Ove
 ## Player indexing
 
 Players are indexed by numbers from 0 to 3. To show a different player, pass the `index` property to the `PlayerInfo` Vue component in `src/components/PlayerInfo.vue`.
-
-Player name still WIP, currently placeholders.
