@@ -32,7 +32,7 @@ async function main() {
     server.route({
         method: 'GET',
         path: '/data',
-        async handler(request, h) {
+        async handler(_request, _h) {
             const data = await readOverlayData();
 
             return data;
@@ -57,16 +57,33 @@ async function main() {
 
 async function readOverlayData() {
     const rawData = await readFileAsync(OVERLAY_DATA_PATH)
-    const [player1CurrentHP, player1MaxHP] = rawData.toString().split(',')
+    const [
+        player1CurrentHP,
+        player1MaxHP,
+        player2CurrentHP,
+        player2MaxHP,
+        player3CurrentHP,
+        player3MaxHP,
+        player4CurrentHP,
+        player4MaxHP,
+    ] = rawData.toString().split(',')
     return {
         Players: [{
             CurrentHP: +player1CurrentHP,
             MaxHP: +player1MaxHP,
-            Name: 'Emilia'
+            Name: 'Player 1'
         }, {
-            CurrentHP: +420,
-            MaxHP: 666,
-            Name: 'Hakresht'
+            CurrentHP: +player2CurrentHP,
+            MaxHP: +player2MaxHP,
+            Name: 'Player 2'
+        }, {
+            CurrentHP: +player3CurrentHP,
+            MaxHP: +player3MaxHP,
+            Name: 'Player 3'
+        }, {
+            CurrentHP: +player4CurrentHP,
+            MaxHP: +player4MaxHP,
+            Name: 'Player 4'
         }],
     }
 }
