@@ -11,3 +11,11 @@ bash start # start server
 ```
 
 then add `http://localhost:4567` as browser source in OBS.
+
+CE table provided in `table/Table.CT`. Change `filePath` in `FC Hosting` -> `Overlay Data Updater` to an existing directory on your system and then execute the script.
+
+## Player indexing
+
+Players are indexed by numbers from 0 to 3. To show a different player, pass the `index` property to the `PlayerInfo` Vue component in `src/components/PlayerInfo.vue`.
+
+Player name still WIP, currently placeholders.
