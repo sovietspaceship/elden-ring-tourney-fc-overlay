@@ -222,18 +222,16 @@ formDescription.Caption = 'Started'
 
 local Key_Player1CurrentHP = 'Player1 - Current HP'
 local Key_Player1MaxHP = 'Player1 - Max HP'
-local Key_Player1Name = 'Player 1 - Name'
+local Key_Player1Name = 'Player1 - Name'
 local Key_Player2CurrentHP = 'Player2 - Current HP'
 local Key_Player2MaxHP = 'Player2 - Max HP'
-local Key_Player2Name = 'Player 2 - Name'
+local Key_Player1Name = 'Player1 - Name'
 local Key_Player3CurrentHP = 'Player3 - Current HP'
 local Key_Player3MaxHP = 'Player3 - Max HP'
-local Key_Player3Name = 'Player 3 - Name'
+local Key_Player1Name = 'Player1 - Name'
 local Key_Player4CurrentHP = 'Player4 - Current HP'
 local Key_Player4MaxHP = 'Player4 - Max HP'
-local Key_Player4Name = 'Player 4 - Name'
-
--- @TODO: add character name
+local Key_Player1Name = 'Player1 - Name'
 
 function tick()
     local file = io.open(filePath, "w")
